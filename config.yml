@@ -1,24 +1,35 @@
-title: PaperModX Example Site
-baseURL: "https://reorx.github.io/papermodx-example/"
+title: 十日痰
+baseURL: "https://dllm.site/"
+paginate: 5
 theme: PaperModX
-
 enableRobotsTXT: true
 enableEmoji: true
-
+# pygmentsUseClasses: true
+# googleAnalytics: UA-123-45
+# minify:
+#    disableXML: true
+#    minifyOutput: true
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
 params:
-  description: "PaperModX Example Site description"
-  author: Reorx
+    # title: 十日痰
+  description: "中年大叔的無病呻吟"
+  # keywords: [Blog, Portfolio, PaperModX]
+  # EnableInstantClick: true
+  author: 高叔 # author: ["Me", "You"] # multiple 
   images:
     - cover.png
   favicon: favicon.ico
   #logo:
   #  icon: images/logo.svg
-  DateFormat: "2006-01-02"
-  useCustomAnalytics: true
-  mainSections:
-    - posts
-    - notes
-
+  DateFormat: "2 January 2006"
+  # useCustomAnalytics: true
+  # mainSections:
+  #  - posts
+  #  - notes
   # theme params
   DisableLanguageSwitch: true
   TocOpen: true
@@ -34,14 +45,14 @@ params:
   ShowCodeCopyButtons: true
   ShowPostNavLinks: true
   Email: hello@example.com
-
+  
   socialIcons:
-    - name: github-simple
-      url: "https://github.com/reorx"
+#    - name: github-simple
+#      url: "https://github.com/reorx"
     - name: twitter-simple
       url: "https://twitter.com/novoreorx"
-    - name: telegram-simple
-      url: "https://t.me/reorx_share"
+#    - name: telegram-simple
+#      url: "https://t.me/reorx_share"
     - name: rss-simple
       url: "feed.xml"
     - name: gmail
@@ -50,63 +61,108 @@ params:
   socialAccounts:
     twitter:
       username: novoreorx
+#    defaultTheme: auto # dark, light
+#    disableThemeToggle: true
+#   ShowReadingTime: true
+#  ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: false
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    showtoc: false
+    tocopen: false
 
+    assets:
+        # disableFingerprinting: true
+        favicon: "<link / abs url>"
+        favicon16x16: "<link / abs url>"
+        favicon32x32: "<link / abs url>"
+        apple_touch_icon: "<link / abs url>"
+        safari_pinned_tab: "<link / abs url>"
+
+    label:
+        text: "Home"
+        icon: /apple-touch-icon.png
+        iconHeight: 35
+
+    # profile-mode
+    profileMode:
+        enabled: false # needs to be explicitly set
+        title: ExampleSite
+        subtitle: "This is subtitle"
+        imageUrl: "<img location>"
+        imageWidth: 120
+        imageHeight: 120
+        imageTitle: my image
+        buttons:
+            - name: Posts
+              url: posts
+            - name: Tags
+              url: tags
+
+# home-info novoreorx
   homeInfoParams:
-    Title: "十日痰"
+    Title: "一個精神錯亂思想蕪雜的大叔"
     Content: |
-      一個精神錯亂思想蕪雜的大叔
-
       困在崩壞的小島上逃避疫情
 
       記下結在喉嚨內痕癢得想吐未吐的胡思亂想
+#    socialIcons:
+#        - name: twitter
+#         url: "https://twitter.com/"
+#        - name: stackoverflow
+#          url: "https://stackoverflow.com"
+#        - name: github
+#          url: "https://github.com/"
 
+#    analytics:
+#        google:
+#            SiteVerificationTag: "XYZabc"
+#        bing:
+#            SiteVerificationTag: "XYZabc"
+#        yandex:
+#           SiteVerificationTag: "XYZabc"
 
-  #commentSystems:
-  #  disqus:
-  #    shortname: reorx
-  #  remark42:
-  #    url: https://remark42.reorx.com
-  #    site: reorx.github.io
-  #  telegramWidget:
-  #    channel: reorx_share
-  #    accentColor: "9077e1"
-  #    limit: 20
-  #defaultCommentSystems:
-  #  remark42: true
+#    cover:
+#        hidden: true # hide everywhere but not in structured data
+#        hiddenInList: true # hide on list pages and home
+#        hiddenInSingle: true # hide on single page
 
-permalinks:
-  notes: /:section/:year/:month/:slugorfilename
+#    editPost:
+#        URL: "https://github.com/<path_to_repo>/content"
+#        Text: "Suggest Changes" # edit text
+#        appendFilePath: true # to append file path to Edit link
 
-# prefer feed.xml rather than index.xml
-outputFormats:
-  RSS:
-    mediatype: "application/rss"
-    baseName: "feed"
-
+    # for search
+    # https://fusejs.io/api/options.html
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
 menu:
-  main:
-    - name: Posts
-      url: /posts/
-      weight: 1
-    - name: Notes
-      url: /notes/
-      weight: 2
-    - name: Newsletter
-      url: /newsletter/
-      weight: 3
-    - name: Archives
-      url: /archives/
-      weight: 4
-
-languages:
-  en:
-    languageName: "English"
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    style: dracula
-    lineNos: false
-    noClasses: false
+    main:
+        - identifier: categories
+          name: categories
+          url: /categories/
+          weight: 10
+        - identifier: tags
+          name: tags
+          url: /tags/
+          weight: 20
+# Read: https://github.com/reorx/hugo-PaperModX/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
